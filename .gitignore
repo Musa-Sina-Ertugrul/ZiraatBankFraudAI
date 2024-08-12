@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 
 collected_data.db
+datasets/*.csv
+datasets/
