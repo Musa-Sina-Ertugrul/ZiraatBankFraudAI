@@ -5,7 +5,9 @@ from tqdm.auto import tqdm
 import numpy as np
 import pandas as pd
 from copy import deepcopy
-config = {"model":"llama-3.1-70b-versatile",
+import groq
+
+config = {"model":"llama-3.1-8b-instant",
     "messages":[
         {
             "role": "user",
@@ -28,7 +30,7 @@ config = {"model":"llama-3.1-70b-versatile",
             16. Hikayede olay örgüsü olmalı."""
         }
     ],
-    "temperature":0.5,
+    "temperature":0,
     "max_tokens":512,
     "top_p":1,
     "response_format":{"type": "json_object"},}
@@ -63,7 +65,7 @@ if __name__ == "__main__":
             choiced_surname = np.random.choice(surnames)
             choiced_job = np.random.choice(jobs)
             age = np.random.randint(18,76)
-            job_year = abs(np.random.randint(18,age)-18)
+            job_year = abs(np.random.randint(18,age+1)-18)
             extra_prompt = f"""17. Kişi ismi {choiced_name} olmalı 
                                 18. Kişi soyadı {choiced_surname}
                                 19. Kişinin yaşadığı şehir {choiced_city} olmalı
@@ -84,11 +86,35 @@ if __name__ == "__main__":
             response = create_response(**alterated_config)
             response_as_dict = json.loads(str(response.choices[0].message.content.strip()))
             print(response_as_dict)
-            cursor.execute(f"INSERT INTO data(text, label) VALUES('{clear_punc(response_as_dict['text'])}', '{clear_punc(response_as_dict['label'])}');")
-            connection.commit()
-            count += 1
-            print(f"{count} text created")
-        except BaseException:
+            try:
+                cursor.execute(f"INSERT INTO data(text, label) VALUES('{clear_punc(response_as_dict['text'])}', '{clear_punc(response_as_dict['label'])}');")
+                connection.commit()
+                count += 1
+                print(f"{count} text created")
+                continue
+            except KeyError:
+                pass
+            except TypeError:
+                pass
+            try:
+                cursor.execute(f"INSERT INTO data(text, label) VALUES('{clear_punc(response_as_dict['hikaye']['text'])}', '{clear_punc(response_as_dict['hikaye']['label'])}');")
+                connection.commit()
+                count += 1
+                print(f"{count} text created")
+                continue
+            except KeyError:
+                pass
+            except TypeError:
+                pass
+            try:
+                cursor.execute(f"INSERT INTO data(text, label) VALUES('{clear_punc(response_as_dict['hikaye'])}', '{clear_punc(response_as_dict['label'])}');")
+                connection.commit()
+                count += 1
+                print(f"{count} text created")
+                continue
+            except BaseException:
+                continue 
+        except groq.BadRequestError:
             continue
     connection.close()
 

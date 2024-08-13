@@ -6,7 +6,7 @@ import numpy as np
 from copy import deepcopy
 genai.configure(api_key="AIzaSyAPc4wK9B1iwA7o-alIZtOi_jQrzJ-az7E")
 
-model = genai.GenerativeModel('gemini-1.5-flash',generation_config={"response_mime_type": "application/json"})
+model = genai.GenerativeModel('gemini-1.5-pro',generation_config={"response_mime_type": "application/json"})
 
 prompt = "Bana fraud detection hikayesi yazman lazım: \
             1. Hikaye Türkçe yazılmalı\
