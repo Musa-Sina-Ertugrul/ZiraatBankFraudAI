@@ -9,7 +9,7 @@ config = {"model":"llama-3.1-70b-versatile",
     "messages":[
         {
             "role": "user",
-            "content": """JSON olarak Bana fraud detection hikayesi yazman lazım: \
+            "content": """JSON olarak Bana not fraud detection hikayesi yazman lazım: \
             1. Hikaye Türkçe yazılmalı\
             2. Hikaye uzun olmalı\
             3. Kişi hakkında çok fazla detay vermeli\
@@ -77,7 +77,8 @@ if __name__ == "__main__":
                                 27. Hikayede tutarlılık olmalı
                                 29. Kişinin çalıştığı yıl {job_year} olmalı
                                 30. Hikaye sade yazılmış olmalı nesnel olmalı
-                                31. Hikayede kişinin fraud yapıp yapmadığı belli olmamalı
+                                31. Hikaye çok uzun olmalı
+                                32. Hikayede alengirli olaylar olması lazım
                                 """
             alterated_config = deepcopy(config)
             alterated_config["messages"][0]["content"] += extra_prompt
