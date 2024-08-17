@@ -164,3 +164,4 @@ cython_debug/
 collected_data.db
 datasets/*.csv
 datasets/
+trans_fraud_model.pkl
