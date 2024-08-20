@@ -9,12 +9,12 @@ config = {"model":"llama-3.1-70b-versatile",
     "messages":[
         {
             "role": "user",
-            "content": """JSON olarak Bana not fraud detection hikayesi yazman lazım: \
+            "content": """JSON olarak Bana fraud tespiti hikayesi yazman lazım: \
             1. Hikaye Türkçe yazılmalı\
             2. Hikaye uzun olmalı\
             3. Kişi hakkında çok fazla detay vermeli\
             4. Kişi hakkında finansal detaylar da vermeli\
-            5. Hikayeyi fraud, not fraud diye label la\
+            5. Hikayeyi içeriğe göre fraud, not fraud diye label la\
             6. Hikaye kendini asla tekrar etmemeli. \
             7. Hikaye ve bilgiler birleşik olmalı, \
             8. Hikaye text label ının altında olmalı \
@@ -28,7 +28,7 @@ config = {"model":"llama-3.1-70b-versatile",
             16. Hikayede olay örgüsü olmalı."""
         }
     ],
-    "temperature":0.5,
+    "temperature":0.3,
     "max_tokens":512,
     "top_p":1,
     "response_format":{"type": "json_object"},}

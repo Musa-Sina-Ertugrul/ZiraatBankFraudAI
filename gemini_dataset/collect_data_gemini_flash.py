@@ -8,11 +8,11 @@ genai.configure(api_key="AIzaSyAPc4wK9B1iwA7o-alIZtOi_jQrzJ-az7E")
 
 model = genai.GenerativeModel('gemini-1.5-flash',generation_config={"response_mime_type": "application/json"})
 
-prompt = "Bana not fraud detection hikayesi yazman lazım: \
+prompt = "Bana fraud veya not fraud tespiti hikayesi yazman lazım: \
             1. Hikaye Türkçe yazılmalı\
                 3. Kişi hakkında çok fazla detay vermeli\
                     4. Kişi hakkında finansal detaylar da vermeli\
-                        5. Hikayeyi fraud, not fraud diye label la\
+                        5. Hikayeyi içeriğe göre fraud, not fraud diye label la\
                             6. Hikaye kendini asla tekrar etmemeli. \
                                 7. Hikaye ve bilgiler birleşik olmalı, \
                                     8. Hikaye text label ının altında olmalı \
@@ -67,6 +67,7 @@ if __name__ == "__main__":
                                 30. Hikaye sade yazılmış olmalı nesnel olmalı
                                 31. Hikaye uzun olmalı
                                 32. Hikayede alengirli olaylar olması lazım
+                                33. Hikayeyi hikayenin kahramanı veya olayı yaşayan kişi anlatmalı
                                 """
             alterated_config = deepcopy(prompt)
             alterated_config += extra_prompt
