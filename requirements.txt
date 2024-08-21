@@ -7,3 +7,5 @@ googletrans
 google-generativeai
 groq
 wxwidgets
+flask
+torch

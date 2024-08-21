@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    font-family:sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-color: #F4998D;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    background-color: #F40000;
+    gap: 10px;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 1;
+}
+
+.ziraat-logo {
+    fill: #f6f6f6;
+    width: 30px;
+    height: auto;
+    padding-top: 20px;
+}
+.left-items{
+    display: flex;
+    flex-direction: column;
+}
+.left-page {
+    background-color:#F40000;
+    text-decoration: none;
+    color: #f6f6f6;
+    font-size: large;
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.left-page:hover{
+    background-color:#F4998D ;
+    color: #090809;
+}
+
+.left-empty {
+
+    justify-content: flex-end;
+}
+
+.middle {
+    background-color: #F4998D;
+}
+.middle-top {
+    background-color: #F40000;
+    color: #f6f6f6;
+    font-weight: 700;
+    font-style: italic;
+    flex-grow: 1;
+    font-size: x-large;
+    padding: 18px;
+}
+
+.main {
+    padding: 20px;
+    
+}
+.main-text-input {
+    resize: none;
+    width: 100%;
+    height: 100%;
+}
+.main-send-input {
+    background-color: #F44E3F !important;
+    border-color: #F44E3F !important;
+}
+.main-send-input:hover {
+    background-color: #F40000 !important;
+    border-color: #F40000 !important;
+}
+
+.main-usage-companents {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}

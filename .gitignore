@@ -165,3 +165,4 @@ collected_data.db
 datasets/*.csv
 datasets/
 trans_fraud_model.pkl
+model_sent.pth
