@@ -34,11 +34,13 @@ body {
     font-size: large;
     padding: 20px;
     margin-left: 10px;
+
 }
 
 .left-page:hover{
     background-color:#F4998D ;
     color: #090809;
+    transition: all 0.4s;
 }
 
 .left-empty {
@@ -75,6 +77,7 @@ body {
 .main-send-input:hover {
     background-color: #F40000 !important;
     border-color: #F40000 !important;
+    transition: all 0.4s;
 }
 
 .main-usage-companents {

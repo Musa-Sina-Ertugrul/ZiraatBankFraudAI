@@ -31,7 +31,7 @@ class MFP(torch.nn.Module):
         self.selu_linear = torch.nn.Linear(1280,768)
         self.elu_linear = torch.nn.Linear(1280, 768)
         self.gelu_linear = torch.nn.Linear(1280,768)
-        self.kan = KAN([8*768,4*768,1])
+        self.kan = KAN([8*768,4*768,1],spline_order=6)
         # -----------------------------------------------
         self.linear_1 = torch.nn.Linear(8*128,4*128)
         self.linear_2 = torch.nn.Linear(2*128,2*128)

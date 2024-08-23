@@ -21,6 +21,7 @@ tokenizer_fraud.add_special_tokens({'pad_token': '[PAD]'})
 model_fraud = ModelFraud().to("cuda")
 model_sent = ModelSent().to("cuda")
 model_sent.load_state_dict(torch.load("./ui/models/model_sent.pth")["model_state_dict"])
+model_fraud.load_state_dict(torch.load("./ui/models/model_fraud.pth")["model_state_dict"])
 
 fraud_result_table = {0:"Sahtecilik olabilir",1:"Sahtecilik yok"}
 sent_result_table = {0:"Negatif",1:"Notr",2:"Pozitif"}
@@ -65,9 +66,9 @@ def upload_sentiment():
 def upload_fraud():
     text = request.form['main_text_input']
     cleared_text = remove_wrong_letters(text)
-    preprocessed_text = preprocess_sent(cleared_text).to("cuda")
+    preprocessed_text = preprocess_fraud(cleared_text).to("cuda")
     result = torch.argmax(model_fraud(preprocessed_text),dim=1).cpu().item()
-    flash(sent_result_table[result])
+    flash(fraud_result_table[result])
     return render_template("fraud_analysis.html")
 
 if __name__ == "__main__":
