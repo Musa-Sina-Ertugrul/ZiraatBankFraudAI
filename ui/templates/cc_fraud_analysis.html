@@ -69,7 +69,7 @@
         <h1 class="slogan">Bir Bankadan Daha Fazlası ...</h1>
       </header>
       <div class="main d-flex flex-fill">
-        <form action="/upload_fraud/" method="post" class="main-form flex-fill" name="text_form">
+        <form action="/upload_cc_fraud/" method="post" class="main-form flex-fill" name="text_form">
           <div class="main-usage flex-fill">
             <p class="main-usage-paragraph">
               <h3 style="color: #090809;">
@@ -77,7 +77,7 @@
               </h3>
               <ol class="list-group list-group-numbered">
                 <li class="list-group-item" style="color: #090809;">
-                  Müşterinin dediklerini yazı alanına yazınız
+                  Bütün boşlukları doldurunuz
                 </li>
                 <li class="list-group-item" style="color: #090809;">
                   Ardından Gönder butonuna tıklayınız
@@ -86,7 +86,41 @@
             </p>
           </div>
           <div class="main-usage-companents d-flex flex-fill">
-            <textarea class="main-text-input" name="main_text_input"></textarea>
+            <div class="main-input-items-div d-flex flex-fill">
+              <div class="main-input-item">
+                <strong>Transaction Step Count</strong>
+                <input type="text" name="main_input_step">
+              </div>
+              <div class="main-input-item">
+                <strong>Transaction Type</strong>
+                <select name="main_input_type">
+                  {%for trans_type in range(5)%}
+                  <option>{{trans_type}}</option>
+                  {%endfor%}
+                </select>
+              </div>
+              <div class="main-input-item">
+                <strong>Amount</strong>
+                <input type="text" name="main_input_amount">
+              </div>
+              <div class="main-input-item">
+                <strong>Old Balance Origin</strong>
+                <input type="text" name="main_input_old_orig">
+              </div>
+              <div class="main-input-item">
+                <strong>New Balance Origin</strong>
+                <input type="text" name="main_input_new_orig">
+              </div>
+              <div class="main-input-item">
+                <strong>Old Balance Destination</strong>
+                <input type="text" name="main_input_old_dest">
+              </div>
+              <div class="main-input-item">
+                <strong>New Balance Destination</strong>
+                <input type="text" name="main_input_new_dest">
+              </div>
+            </div>
+          </div>
             <input type="submit" name="send-input" class="main-send-input btn btn-primary"/>
           </div>
         </form>
