@@ -167,3 +167,5 @@ datasets/
 trans_fraud_model.pkl
 model_sent.pth
 model_fraud.pth
+cc_fraud_model.pkl
+trans_fraud.csv
